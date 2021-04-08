@@ -1,0 +1,23 @@
+/* Google Fonts (Merriweather, Merriweather Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+/* TailwindCSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-text-base: #151515;
+        --color-fill: #FF9B63;
+        --color-via: #FFCE84;
+        --color-to: #FFE8AB;
+        --color-forecast: 255, 255, 255;
+    }
+    .night {
+        --color-text-base: #FCFCFC;
+        --color-fill: #1D2570;
+        --color-via: #462D98;
+        --color-to: #7635C8;
+        --color-forecast: 17, 17, 17;
+    }
+}

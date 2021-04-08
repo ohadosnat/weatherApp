@@ -1,0 +1,18 @@
+{
+  "name": "weather-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development postcss css/tailwind.css -o css/styles.css -w",
+    "build": "NODE_ENV=production postcss css/tailwind.css -o css/styles.css"
+  },
+  "author": "Ohad Osnat",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.1"
+  }
+}
