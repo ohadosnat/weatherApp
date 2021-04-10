@@ -1,5 +1,6 @@
 ## **Weather App**
 A weather website I did while learning JavaScript. <br>
+You can view it online [here](https://thebeautifultauren.github.io/weatherApp/index.html)
 <hr>
 ## The Process:
 ### **Idea:**
