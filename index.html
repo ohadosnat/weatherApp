@@ -11,26 +11,25 @@
 
 <body class="">
     <!-- Main Wrapper -->
-    <div
-        class="bg-gradient-to-bl from-skin-start via-skin-middle to-skin-end font-merriweather-sans w-screen flex flex-col items-center pt-7  md:h-screen lg:h-screen">
+    <div id="mainWrapper"
+        class="bg-gradient-to-bl from-skin-start via-skin-middle to-skin-end font-merriweather-sans flex flex-col items-center pt-7 h-screen md:h-screen">
         <!-- Search -->
-        <div id="search" class="w-full px-6 md:w-1/2 lg:w-2/5 xl:w-1/5">
-            <form action="GET">
-                <input type="text" placeholder="Enter Location"
-                    class="font-light text-sm rounded-md text-center py-2 w-full shadow-md">
-            </form>
-        </div>
+        <form action="GET" class="w-full px-6 md:w-1/2 lg:w-2/5 xl:w-1/5">
+            <input type="text" name="city" placeholder="Enter Location"
+                class="font-light text-sm rounded-md text-center py-2 w-full shadow-md">
+        </form>
         <!-- Main Content -->
         <section
-            class="text-skin-base text-center font-merriweather font-light my-16 px-6 cursor-default lg:my-36 xl:my-60">
-            <h3 id="countryName">Israel</h3>
-            <h2 id="cityName" class="mb-7 text-4xl font-bold">Tel-Mond</h2>
-            <p id="weatherText" class="font-merriweather-sans">As for <span class="font-normal">14:20</span>, it’s <span
-                    class="font-normal">Sunny but not as warm</span></p>
-            <h1 id="currentTemp" class="font-normal text-8xl leading-normal">31&deg;c</h1>
+            class="text-skin-base text-center font-merriweather font-light px-6 cursor-default flex flex-col justify-center h-full my-20">
+            <h1 name="initialText" class="text-2xl font-bold">Hey, Please enter a location</h1>
+            <h3 id="countryName"></h3>
+            <h2 id="cityName" class="mb-7 text-4xl font-bold"></h2>
+            <p id="weatherText" class="font-merriweather-sans">
+            </p>
+            <h1 id="currentTemp" class="font-normal text-8xl leading-normal"></h1>
         </section>
         <!-- Forecast -->
-        <div class="w-full md:absolute bottom-0">
+        <div id="forecastWrapper" class="hidden w-full">
             <!-- Mobile, Tablet Forecast Top -->
             <svg viewBox="0 0 360 43" fill="none" xmlns="http://www.w3.org/2000/svg"
                 class="fill-current text-skin-forecast xl:hidden">
@@ -43,161 +42,36 @@
                 <path opacity="0.8"
                     d="M0 36.1495C0 36.1495 125.386 120.149 720 37.1496C1314.61 -45.8495 1440 36.1495 1440 36.1495V89.761H0V36.1495Z" />
             </svg>
+            <section class="w-full pb-8 bg-skin-forecast bg-opacity-80 cursor-default text-skin-base md:text-center">
 
-            <section
-                class="w-full pb-8 bg-skin-forecast bg-opacity-80 cursor-default text-skin-base md:text-center xl:flex xl:justify-center xl:items-center xl:text-left 2xl:pb-12 xl:pt-8">
-
-                <div class="inline-block ml-4 pt-8 md:pt-0">
+                <div class="inline-block ml-4 pt-8 md:pt-0 md:ml-0">
                     <h2 class="text-4xl font-merriweather">Forecast</h2>
-                    <div class="h-[1px] bg-skin-divider w-2/5 mt-2 mb-4 opacity-50 md:w-auto  xl:hidden">
+                    <div class="h-[1px] bg-skin-divider w-2/5 mt-2 mb-4 opacity-50 md:w-auto">
                     </div>
                 </div>
 
-                <hr class="w-[1px] h-11 bg-skin-divider opacity-50 ml-4 hidden xl:block 2xl:ml-6" />
-
-                <div class="md:flex md:flex-col md:items-center xl:flex-row">
+                <div class="md:flex md:flex-col md:items-center">
                     <!-- 12 Hours Forecast -->
-                    <div class="mb-6 ml-4 md:mb-0 2xl:ml-6">
-                        <h4 class="text-lg font-bold mb-2">Next 12 Hours</h4>
+                    <div class="mb-6 ml-4 md:ml-0">
+                        <h4 class="text-xl font-bold mb-3">Next 12 Hours</h4>
                         <!-- Forecast Items Wrapper -->
                         <div class="overflow-hidden">
                             <div class="overflow-x-scroll pb-[20px] mb-[-20px] xl:gap-x-6">
                                 <div id="hoursItems" class="flex w-max">
                                     <!-- Forecast Items -->
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">1 PM</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <hr class="w-[1px] h-11 bg-skin-divider opacity-50 hidden xl:block" />
-
                     <!-- 5 Days Forecast -->
-                    <div class="mb-6 ml-4 md:mb-0 lg:mb-0 2xl:ml-6">
-                        <h4 class="text-lg font-bold mb-2">Next 5 Days</h4>
+                    <div class="ml-4 md:ml-0">
+                        <h4 class="text-xl font-bold mb-3">Next 5 Days</h4>
                         <!-- Forecast Items Wrapper -->
                         <div class="overflow-hidden">
                             <div class="overflow-x-scroll pb-[20px] mb-[-20px] xl:gap-x-6">
-                                <div id="hoursItems" class="flex w-max">
+                                <div id="dayItems" class="flex w-max">
                                     <!-- Forecast Items -->
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">Sunday</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">Monday</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">Thuesday</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-6">
-                                        <p class="">Wednsday</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
-                                    <div
-                                        class="mr-4 text-sm flex flex-col justify-center items-center lg:text-base 2xl:mr-0">
-                                        <p class="">Thursday</p>
-                                        <img src="css/icons/day/day_clear-cloudy.svg" alt="Clear and Cloudy Weather"
-                                            class="h-7 fill-current text-skin-base xl:h-8">
-                                        <p class="text-sm lg:text-base">31&deg;c</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -206,6 +80,8 @@
             </section>
         </div>
     </div>
+    <script src="scripts/forecast.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>
