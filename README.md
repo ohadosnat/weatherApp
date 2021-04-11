@@ -1,7 +1,8 @@
 ## **Weather App**
 A weather website I did while learning JavaScript. <br>
 You can view it online [here](https://thebeautifultauren.github.io/weatherApp/index.html)
-<hr>
+
+----------
 ## The Process:
 ### **Idea:**
 While learning JavaScript, The course I took did a simple Weather website that only shows the current degrees, location name, and a weather icon (using AccWeather Free API) <br>
