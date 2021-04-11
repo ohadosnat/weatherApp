@@ -74,7 +74,7 @@ const updateUI = async (data) => {
         const html = `
             <div class="mr-4 text-base flex flex-col justify-center items-center lg:text-lg 2xl:mr-6">
                 <p class="">${day}</p>
-                <img src="css/icons/${weatherIcon}12.svg" alt="${weather.WeatherText}" class="h-12 fill-current text-skin-base">
+                <img src="css/icons/${weatherIcon}${forecast5Days[i].WeatherIcon}.svg" alt="${weather.WeatherText}" class="h-12 fill-current text-skin-base">
                 <p class="time text-base lg:text-lg">${tempInCelsius}&deg;c</p>
             </div>`;
 
