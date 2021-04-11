@@ -1,5 +1,4 @@
-const url = "https://thebeautifultauren.github.io/weatherApp/";
-const key = "dX5RtZ13ChPmqWBeXAf70WAneDdDLeCR"; // api key - if requests gets to limit, open a new "app" and replace the key.
+const key = "qAbwxpUG1d5BMxe3WtRl923DsBLI9UPP"; // api key - if requests gets to limit, open a new "app" and replace the key.
 
 const getWeather = async (id) => {
     const base = "http://dataservice.accuweather.com/currentconditions/v1/";
