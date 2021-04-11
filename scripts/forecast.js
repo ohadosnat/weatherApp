@@ -1,3 +1,4 @@
+const url = "https://thebeautifultauren.github.io/weatherApp/";
 const key = "qAbwxpUG1d5BMxe3WtRl923DsBLI9UPP"; // api key - if requests gets to limit, open a new "app" and replace the key.
 
 const getWeather = async (id) => {
