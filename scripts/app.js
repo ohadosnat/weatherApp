@@ -13,6 +13,7 @@ const currentCondition = {
 const hourly12 = document.querySelector('#hoursItems');
 const daily5 = document.querySelector('#dayItems');
 const forecastWrapper = document.querySelector('#forecastWrapper');
+const forecast = new Forecast();
 
 
 // Update User Interface Function
@@ -24,24 +25,18 @@ const updateUI = async (data) => {
     // Current Condition Update
     currentCondition.countryName.innerText = cityDets.Country.EnglishName;
     currentCondition.cityName.innerText = cityDets.EnglishName;
-    let currentTime = weather.LocalObservationDateTime.slice(11, 16);
-    currentCondition.weatherText.innerHTML = `As for <span class="font-normal">${currentTime}</span> (local
-        time), it’s <span class="font-normal">${weather.WeatherText}</span>`;
+    let currentTime = weather.LocalObservationDateTime.slice(11, 16); // current local time
+    currentCondition.weatherText.innerHTML = `As for <span class="font-normal">${currentTime}</span> (local time), it’s <span class="font-normal">${weather.WeatherText}</span>`;
     currentCondition.currentTemp.innerHTML = `${weather.Temperature.Metric.Value}&deg;c`;
     mainWrapper.children[1].children[0].innerText = "";
 
     // Forecast Information Update
-
+    // showing forecast section
     forecastWrapper.classList.remove('hidden');
     mainWrapper.classList.remove('h-screen', "md:h-screen");
 
-    // reset forecast elements
-    hourly12.innerHTML = '';
-    daily5.innerHTML = '';
-
     // checks if it's day or night
     let weatherType = "";
-
     if (weather.IsDayTime) {
         body.classList.remove('night');
         weatherType = "day/"
@@ -50,7 +45,12 @@ const updateUI = async (data) => {
         weatherType = "night/"
     };
 
-    // Generates forecast items
+    // Generates Forecast Items
+
+    // reset forecast elements
+    hourly12.innerHTML = '';
+    daily5.innerHTML = '';
+
     // 12 Hours Forecast
     for (let i = 0; i < forecast12Hours.length; i++) {
         let tempInCelsius = tempToCelsius(forecast12Hours[i].Temperature.Value).toFixed(0);
@@ -80,21 +80,11 @@ const updateUI = async (data) => {
 
         daily5.innerHTML += html;
     };
-
 };
 
 // Fahrenheit to Celsius Function
 const tempToCelsius = (temp) => {
     return (temp - 32) * 5 / 9;
-};
-
-// gets the city's weather information
-const updateCity = async (city) => {
-    const cityDets = await getCity(city);
-    const weather = await getWeather(cityDets.Key);
-    const forecast12Hours = await getForecast12hours(cityDets.Key);
-    const forecast5Days = await getForecast5days(cityDets.Key);
-    return { cityDets, weather, forecast12Hours, forecast5Days };
 };
 
 searchForm.addEventListener('submit', e => {
@@ -106,7 +96,7 @@ searchForm.addEventListener('submit', e => {
     searchForm.reset();
 
     // update ui with new city
-    updateCity(city)
+    forecast.updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
 
@@ -114,8 +104,9 @@ searchForm.addEventListener('submit', e => {
     localStorage.setItem('city', city);
 });
 
+// display lastest city if true
 if (localStorage.getItem('city')) {
-    updateCity(localStorage.getItem('city'))
+    forecast.updateCity(localStorage.getItem('city'))
         .then(data => updateUI(data))
         .catch(err => console.log(err));
 };
